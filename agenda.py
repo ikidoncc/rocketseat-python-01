@@ -1,10 +1,18 @@
+from os import name, system
+
+def clear_terminal():
+    if name == "nt":
+        system("cls")
+    else:
+        system("clear")
+
 _DATABASE = [
   { "name": "ikidon", "phone": "999999999", "email": "ikidon@gmail.com", "favorite": 0 },
   { "name": "felipe", "phone": "111111111", "email": "felipe@gmail.com", "favorite": 1 }
   ]
 
 def CreateContact():
-  print("\n...New contact...\n")
+  print("...New contact...\n")
 
   name = input("name: ")
   phone = input("phone: ")
@@ -21,13 +29,13 @@ def CreateContact():
   _DATABASE.append(contact)
 
 def ListAllContacts():
-  print("\n...List all contacts...\n")
+  print("...List all contacts...\n")
 
   for contact in _DATABASE:
     print(contact)
 
 def UpdateContact():
-  print("\n...Update a contact...\n")
+  print("...Update a contact...\n")
 
   print("Yours contacts: ")
   for contact in _DATABASE:
@@ -53,7 +61,7 @@ def UpdateContact():
   _DATABASE[indexContact].update(contact)
 
 def FavoriteOrUnfavorite():
-  print("\n...Favorite or Unfavorite a contact...\n")
+  print("...Favorite or Unfavorite a contact...\n")
   
   print("Yours contacts: ")
   for contact in _DATABASE:
@@ -71,7 +79,7 @@ def FavoriteOrUnfavorite():
   print(_DATABASE)
 
 def ListAllFavoriteContacts():
-  print("\n...List all favorite contacts...\n")
+  print("...List all favorite contacts...\n")
 
   print("Yours favorite contacts:")
   for index in range(len(_DATABASE)):
@@ -79,7 +87,7 @@ def ListAllFavoriteContacts():
       print(f"{index} - {_DATABASE[index].get("name")}")
 
 def DeleteContact():
-  print("\n...Delete a contact...\n")
+  print("...Delete a contact...\n")
 
   print("Yours contacts: ")
   for contact in _DATABASE:
@@ -107,16 +115,40 @@ def ShowOptions():
     print(option)
 
 def Main():
+  clear_terminal()
+  
   while True:
+    print("\n-------MENU-------\n")
     ShowOptions()
     option_selected = int(input("\nPlease, enter a number: "))
 
-    if(option_selected == 1): CreateContact()
-    if(option_selected == 2): ListAllContacts()
-    if(option_selected == 3): UpdateContact()
-    if(option_selected == 4): FavoriteOrUnfavorite()
-    if(option_selected == 5): ListAllFavoriteContacts()
-    if(option_selected == 6): DeleteContact()
-    if(option_selected == 7): break
+    if(option_selected == 0):
+      clear_terminal()
+      
+    elif(option_selected == 1): 
+      clear_terminal()
+      CreateContact()
+
+    elif(option_selected == 2):
+      clear_terminal()
+      ListAllContacts()
+
+    elif(option_selected == 3):
+      clear_terminal()
+      UpdateContact()
+
+    elif(option_selected == 4):
+      clear_terminal()
+      FavoriteOrUnfavorite()
+
+    elif(option_selected == 5):
+      clear_terminal()
+      ListAllFavoriteContacts()
+
+    elif(option_selected == 6):
+      clear_terminal()
+      DeleteContact()
+
+    elif(option_selected == 7): break
 
 Main()
