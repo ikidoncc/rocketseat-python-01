@@ -78,6 +78,19 @@ def ListAllFavoriteContacts():
     if(_DATABASE[index].get("favorite") == 1):
       print(f"{index} - {_DATABASE[index].get("name")}")
 
+def DeleteContact():
+  print("\n...Delete a contact...\n")
+
+  print("Yours contacts: ")
+  for contact in _DATABASE:
+    index = _DATABASE.index(contact)
+
+    print(f"{index} - {contact.get("name")}")
+
+  indexContact = int(input("\nWhich contact do you want to update? (Select by number on the right)\n> "))
+
+  _DATABASE.remove(_DATABASE[indexContact])
+
 def ShowOptions():
   options = (
     "0. Welcome to agenda!",
@@ -103,5 +116,6 @@ def Main():
   if(option_selected == 3): UpdateContact()
   if(option_selected == 4): FavoriteOrUnfavorite()
   if(option_selected == 5): ListAllFavoriteContacts()
+  if(option_selected == 6): DeleteContact()
 
 Main()
