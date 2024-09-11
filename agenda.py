@@ -1,6 +1,6 @@
 _DATABASE = [
   { "name": "ikidon", "phone": "999999999", "email": "ikidon@gmail.com", "favorite": 0 },
-  { "name": "felipe", "phone": "111111111", "email": "felipe@gmail.com", "favorite": 0 }
+  { "name": "felipe", "phone": "111111111", "email": "felipe@gmail.com", "favorite": 1 }
   ]
 
 def CreateContact():
@@ -70,6 +70,14 @@ def FavoriteOrUnfavorite():
 #exclude
   print(_DATABASE)
 
+def ListAllFavoriteContacts():
+  print("\n...List all favorite contacts...\n")
+
+  print("Yours favorite contacts:")
+  for index in range(len(_DATABASE)):
+    if(_DATABASE[index].get("favorite") == 1):
+      print(f"{index} - {_DATABASE[index].get("name")}")
+
 def ShowOptions():
   options = (
     "0. Welcome to agenda!",
@@ -94,5 +102,6 @@ def Main():
   if(option_selected == 2): ListAllContacts()
   if(option_selected == 3): UpdateContact()
   if(option_selected == 4): FavoriteOrUnfavorite()
+  if(option_selected == 5): ListAllFavoriteContacts()
 
 Main()
