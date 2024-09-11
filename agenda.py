@@ -1,3 +1,22 @@
+_DATABASE = []
+
+def CreateContact():
+  print("\n...New contact...\n")
+
+  name = input("name: ")
+  phone = input("phone: ")
+  email = input("email: ")
+  favorite = input("favorite (0 = No, 1 = Yes): ")
+
+  contact = {
+    "name": name,
+    "phone": phone,
+    "email": email,
+    "favorite": favorite
+    }
+
+  _DATABASE.append(contact)
+
 def ShowOptions():
   options = (
     "0. Welcome to agenda!",
@@ -18,7 +37,9 @@ def Main():
 
   option_selected = int(input("\nPlease, enter a number: "))
 
-  print(option_selected)
+  if(option_selected == 1): CreateContact()
+
+  print(_DATABASE)
 
 
 Main()
