@@ -107,15 +107,16 @@ def ShowOptions():
     print(option)
 
 def Main():
-  ShowOptions()
+  while True:
+    ShowOptions()
+    option_selected = int(input("\nPlease, enter a number: "))
 
-  option_selected = int(input("\nPlease, enter a number: "))
-
-  if(option_selected == 1): CreateContact()
-  if(option_selected == 2): ListAllContacts()
-  if(option_selected == 3): UpdateContact()
-  if(option_selected == 4): FavoriteOrUnfavorite()
-  if(option_selected == 5): ListAllFavoriteContacts()
-  if(option_selected == 6): DeleteContact()
+    if(option_selected == 1): CreateContact()
+    if(option_selected == 2): ListAllContacts()
+    if(option_selected == 3): UpdateContact()
+    if(option_selected == 4): FavoriteOrUnfavorite()
+    if(option_selected == 5): ListAllFavoriteContacts()
+    if(option_selected == 6): DeleteContact()
+    if(option_selected == 7): break
 
 Main()
