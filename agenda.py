@@ -17,6 +17,12 @@ def CreateContact():
 
   _DATABASE.append(contact)
 
+def ListAllContacts():
+  print("\n...List all contacts...\n")
+
+  for contact in _DATABASE:
+    print(contact)
+
 def ShowOptions():
   options = (
     "0. Welcome to agenda!",
@@ -38,8 +44,6 @@ def Main():
   option_selected = int(input("\nPlease, enter a number: "))
 
   if(option_selected == 1): CreateContact()
-
-  print(_DATABASE)
-
+  if(option_selected == 2): ListAllContacts()
 
 Main()
